@@ -2,6 +2,7 @@
 
 /**
  * print_mod - entry point
+ * Description: function that prints percent
  * @args: args to function
  * Return: mod
  */
@@ -15,7 +16,8 @@ int print_mod(va_list args)
 }
 
 /**
- * print_strings - entry point
+ * print_string - entry point
+ * Description: function that prints a string
  *
  * @args: argument input
  * Return: count
@@ -41,6 +43,7 @@ int print_string(va_list args)
 
 /**
  * print_char - entry point
+ * Description: function that prints a character
  *
  * @args: arg print
  *
