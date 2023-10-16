@@ -9,19 +9,18 @@
 #include <string.h>
 
 /**
- * struct format - entry point
+ * struct formatter - entry point
  *
  * Description: format to print
- *
- * @f: integer printer
- * @fo: printing of char
+ * @f: integer pointer
+ * @formatter: printing of char
  */
 
-typedef struct format
+typedef struct formatter
 {
 	char *c;
 	int (*f)(va_list);
-} format_t;
+} formatter_t;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -29,7 +28,7 @@ int print_s(va_list s);
 int print_c(va_list c);
 
 /**
- * struct functions - entry point
+ * struct function - entry point
  * @fomt: char holding pointer to format specifier
  *
  * @ptr: the int pointer to function to convert format specifier
