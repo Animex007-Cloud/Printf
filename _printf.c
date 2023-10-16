@@ -39,7 +39,8 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			(to_count == -1) ? (_putchar(format[z])) : (to_count += _putchar(format[z]));
+			(to_count == -1) ? (_putchar(format[z])) :
+				(to_count += _putchar(format[z]));
 		}
 		z++;
 		if (to_count != -1)
