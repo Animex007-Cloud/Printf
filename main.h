@@ -14,29 +14,37 @@
  * Description: format to print
  *
  * @f: integer printer
- * @formatter: printing of char
+ * @fo: printing of char
  */
 
-typedef struct formatter
+typedef struct format
 {
-	char formatter;
+	char *c;
 	int (*f)(va_list);
-} formatter_t;
-
-/**
- * my prototypes
- */
+} format_t;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int all_function(char s, va_list args);
+int print_s(va_list s);
+int print_c(va_list c);
 
 /**
- * all converter specifier
+ * struct functions - entry point
+ * @fomt: char holding pointer to format specifier
+ *
+ * @ptr: the int pointer to function to convert format specifier
+ *
  */
 
-int print_mod(va_list args);
-int print_char(va_list args);
-int print_string(va_list args);
+typedef struct function
+{
+	char *fomt;
+	int (*ptr)();
+} function_t;
+int print_char(va_list numz);
+int print_string(va_list numz);
+int _printf(const char *format, ...);
+int _putchar(char c);
+int (*all_function(char s))(va_list numz);
 
 #endif

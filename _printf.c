@@ -11,40 +11,42 @@
 
 int _printf(const char *format, ...)
 {
-	int z = 0, to_count = 0, pick_func;
-	va_list args;
+	int n = -1;
 
-	va_start(args, format);
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-
-	while (format[z])
+	if (format)
 	{
-		pick_func = 0;
-		if (format[z] == '%')
+		int b;
+		va_list numz;
+		int (*pick)(va_list);
+
+		va_start(numz, format);
+		if (format[0] == '%' && format[1] == '\0')
+			return (-1);
+
+		n = 0;
+
+		for (b = 0; format[b] != '\0'; b++)
 		{
-			if (!format[z + 1] || (format[z + 1] == ' ' && !format[z + 2]))
+			if (format[b] == '%')
 			{
-				to_count = -1;
-				break;
+				if (format[b + 1] == '%')
+				{
+					n += _putchar(format[b]);
+					b++;
+				}
+				else if (format[b + 1] != '\0')
+				{
+					pick = all_function(format[b + 1]);
+					if (pick)
+						n = n + pick(numz);
+					else
+						n += _putchar(format[b]) + _putchar(format[b + 1]);
+					b++;
+				}
 			}
-			pick_func += all_function(format[z + 1], args);
-			if (pick_func == 0)
-				to_count += _putchar(format[z + 1]);
-			if (pick_func == -1)
-				to_count = -1;
-			z++;
+			else
+				n = n + _putchar(format[b]);
 		}
-		else
-		{
-			(to_count == -1) ? (_putchar(format[z])) : (to_count += _putchar(format[z]));
-		}
-		z++;
-		if (to_count != -1)
-			to_count += pick_func;
 	}
-	va_end(args);
-	return (to_count);
+	return (n);
 }

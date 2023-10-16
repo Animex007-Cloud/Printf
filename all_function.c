@@ -4,33 +4,25 @@
  * all_function - entry point
  *
  * @convert_spe: convert specifier by selection
- * @args: all arguments
+ * @z: int check
  *
  * Return: all character count by entry
  */
 
-int all_function(char convert_spe, va_list args)
+int (*all_function(char s))(va_list)
 {
-	int z = 0;
-	int pick_func = 0;
-
-	formatter_t form[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'%', print_mod},
-		{0, NULL}
+	function_t fun[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{NULL, NULL}
 	};
 
-	while (form[z].formatter)
+	int z;
+
+	for (z = 0; fun[z].fomt != NULL; z++)
 	{
-		if (convert_spe == form[z].formatter)
-			pick_func += form[z].f(args);
-		z++;
+		if (*fun[z].fomt == s)
+			return (fun[z].ptr);
 	}
-	if (pick_func == 0)
-	{
-		pick_func += _putchar('%');
-		pick_func += _putchar(convert_spe);
-	}
-	return (pick_func);
+	return (NULL);
 }
