@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * print_strings - entry point
+ * print_string - entry point
+ * Description: function that prints string
  *
  * @numz: argument input
  * Return: count
@@ -27,6 +28,7 @@ int print_string(va_list numz)
  *
  * @numz: gives list of char
  * Description: function that prints a character
+ * Return: q
  */
 
 int print_char(va_list numz)

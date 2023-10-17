@@ -3,8 +3,8 @@
 /**
  * all_function - entry point
  *
- * @convert_spe: convert specifier by selection
- * @z: int check
+ * Description: convert specifier by selection
+ * @s: int check
  *
  * Return: all character count by entry
  */
