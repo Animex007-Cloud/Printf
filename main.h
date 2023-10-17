@@ -26,6 +26,8 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int print_s(va_list s);
 int print_c(va_list c);
+int print_d(va_list d);
+int print_i(va_list i);
 
 /**
  * struct function - entry point
@@ -45,5 +47,7 @@ int print_string(va_list numz);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int (*all_function(char s))(va_list numz);
+int print_deci(va_list numz);
+int print_inte(va_list ar_numzlist);
 
 #endif
