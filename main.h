@@ -12,8 +12,8 @@
  * struct formatter - entry point
  *
  * Description: format to print
- * @f: integer pointer
- * @formatter: printing of char
+ * @c: pointer
+ * @f: pointer to int
  */
 
 typedef struct formatter
